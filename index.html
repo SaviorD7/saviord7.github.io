@@ -1,4 +1,4 @@
-<html>
+﻿<html>
  <head>
   <title>LAB1</title>
   <meta charset="utf-8">
@@ -21,13 +21,15 @@
 		<p>S - движение вниз</p>
 		<p>A - движение влево</p>
 		<p>D - движение вправо</p>
-		<p>P - увеличение радиуса</p>
-		<p>O - уменьшение радиуса</p>
 		<p>R - поворот направо 90°</p>
 		<p>Q - поворот налево 90°</p>
 		<span id="xy"></span>
 	</div>
  
+	
+	
+
+</form>
 	<canvas id="image" width="1500" height="1500"></canvas>
  
 	<script>
@@ -151,18 +153,21 @@
 				x = rotate_X(x, y, angle);
 				y = rotate_Y(tmp, y, angle);
 				a.lineTo(x0+x, y0+y);
+			
 				x = 200;
 				y = 200;
+				tmp = x;
 				x = rotate_X(x, y, angle);
 				y = rotate_Y(tmp, y, angle);
 				a.lineTo(x0+x, y0+y);
-			
+				//x = rotate_X(x, y, angle);
+				//y = rotate_Y(tmp, y, angle);
 			a.closePath();
 			a.stroke();
 		}
  
 		//Начальные значения угла, координат центра, радиуса
-		var angle = 0, x0 = 400, y0 = 345, r = 1;
+		var angle = 0, x0 = 400, y0 = 345, r = 30;
 		//Границы поля для рисования
 		var br_top = 46, br_bottom = 470, br_left = 47, br_right = 470;
  
@@ -182,10 +187,7 @@
 			if(event.keyCode == 82) figure(0, 0, 0, Math.PI/2);	//R
  
 			if(event.keyCode == 81) figure(0, 0, 0, -Math.PI/2);	//L
- 
-			if(event.keyCode == 80) figure(0, 0, 2, 0);			//P
- 
-			if(event.keyCode == 79) figure(0, 0, -10, 0);		//O
+
  
 		});
  
